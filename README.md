@@ -3,11 +3,11 @@ A Docker setup running PHP 7.4 and 8.1 side by side.
 
 ## What is included?
 
-Includes:
+Included Containers:
 
-- Nginx reverse proxy
-- PHP 7.4
-- PHP 8.1
+- NGINX (reverse proxy)
+- PHP 7.4 + Apache
+- PHP 8.1 + Apache
 - [Redis](https://redis.io/)
 - [Memcached](https://memcached.org/)
 - [MariaDB](https://mariadb.com/)
@@ -28,3 +28,6 @@ Both PHP containers are configured with:
 ```
 docker-compose up --build -d
 ```
+
+## Configuration / Usage
+
