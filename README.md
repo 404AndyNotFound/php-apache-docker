@@ -1,5 +1,6 @@
 # PHP Apache Docker
-A Docker setup running PHP 7.4 and 8.1 side by side.
+
+A Docker setup running PHP 7.4 and 8.1 side by side with many useful extentions pre-installed.
 
 ## What is included?
 
@@ -33,9 +34,9 @@ docker-compose up --build -d
 
 ### Reverse Proxy
 
-Configure a site in the reverse proxy in ```nginx.conf```
+Configure a site in the reverse proxy in ```nginx.conf```.
 
-Configure for PHP 8.1
+Configure for PHP 8.1.
 ```
 server { # simple reverse-proxy
     listen 80;
@@ -48,7 +49,7 @@ server { # simple reverse-proxy
 } 
 ```
 
-Configure for PHP 7.4
+Configure for PHP 7.4.
 ```
 server { # simple reverse-proxy
     listen 80;
@@ -61,7 +62,7 @@ server { # simple reverse-proxy
 } 
 ```
 
-After editing ```nginx.conf``` make sure to restart the nginx container ```docker restart nginx```
+After editing ```nginx.conf``` make sure to restart the nginx container ```docker restart nginx``` to reload the configuration.
 
 ### Virtual Hosts
 
@@ -69,7 +70,7 @@ After editing ```nginx.conf``` make sure to restart the nginx container ```docke
 
 Place your web files in a subdirectory inside the ```www``` folder
 
-Edit ```vhost8.1.conf```
+Edit ```vhost8.1.conf```.
 
 ```
 <VirtualHost *:80>
@@ -86,13 +87,13 @@ Edit ```vhost8.1.conf```
 </VirtualHost>
 ```
 
-After editing ```vhost8.1.conf``` make sure to restart the nginx container ```docker restart php81```
+After editing ```vhost8.1.conf``` make sure to restart the php81 container ```docker restart php81``` to reload the virtualhost configuration.
 
 #### PHP 7.4
 
-Place your web files in a subdirectory inside the ```www``` folder
+Place your web files in a subdirectory inside the ```www``` folder.
 
-Edit ```vhost7.4.conf```
+Edit ```vhost7.4.conf```.
 
 ```
 <VirtualHost *:80>
@@ -109,7 +110,7 @@ Edit ```vhost7.4.conf```
 </VirtualHost>
 ```
 
-After editing ```vhost7.4.conf``` make sure to restart the nginx container ```docker restart php74```
+After editing ```vhost7.4.conf``` make sure to restart the php74 container ```docker restart php74``` to reload the virtualhost configuration.
 
 ## Hosts
 
