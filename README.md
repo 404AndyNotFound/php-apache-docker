@@ -31,3 +31,30 @@ docker-compose up --build -d
 
 ## Configuration / Usage
 
+Configure a site in the reverse proxy in ```nginx.conf```
+
+Configure for PHP 8.1
+```
+server { # simple reverse-proxy
+    listen 80;
+    server_name <<Your site's domain>>;
+
+    location / {
+      include /etc/nginx/includes/proxy.conf;
+      proxy_pass http://php81;
+    }
+} 
+```
+
+Configure for PHP 7.4
+```
+server { # simple reverse-proxy
+    listen 80;
+    server_name <<Your site's domain>>;
+
+    location / {
+      include /etc/nginx/includes/proxy.conf;
+      proxy_pass http://php74;
+    }
+} 
+```
