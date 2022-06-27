@@ -1,4 +1,4 @@
-FROM php:7.4.29-apache
+FROM php:7.4.30-apache
 
 RUN apt-get clean all
 RUN apt-get update
@@ -34,4 +34,4 @@ RUN mkdir -p /tmp/pear/cache
 
 RUN mkdir /app
 
-RUN chown -R www-data:www-data /app && a2enmod rewrite
+RUN chown -R www-data:www-data /app && a2enmod rewrite && a2enmod headers
