@@ -1,4 +1,4 @@
-FROM php:8.1.7-apache
+FROM php:8.1.8-apache
 
 RUN apt-get clean all
 RUN apt-get update
