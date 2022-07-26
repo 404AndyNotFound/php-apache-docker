@@ -27,7 +27,7 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=887Ap491
+      - MYSQL_ROOT_PASSWORD=xxxxxxxx
       - TZ=UTC
       
   redis:

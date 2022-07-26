@@ -1,4 +1,4 @@
-FROM php:8.1.6-apache
+FROM php:8.1.7-apache
 
 RUN apt-get clean all
 RUN apt-get update
@@ -30,6 +30,10 @@ RUN pecl install imagick
 
 RUN echo "extension=imagick.so" > /usr/local/etc/php/conf.d/40_imagick.ini
 
+RUN pecl install mongodb
+
+RUN echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/50_mongodb.ini
+
 RUN docker-php-ext-install pdo_mysql mbstring zip exif intl soap xml gd curl mysqli calendar
 
 RUN npm install -g svgo
@@ -38,4 +42,4 @@ RUN mkdir -p /tmp/pear/cache
 
 RUN mkdir /app
 
-RUN chown -R www-data:www-data /app && a2enmod rewrite
+RUN chown -R www-data:www-data /app && a2enmod rewrite && a2enmod headers
