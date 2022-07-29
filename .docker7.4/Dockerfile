@@ -30,7 +30,13 @@ RUN pecl install mongodb
 
 RUN echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/50_mongodb.ini
 
-RUN docker-php-ext-install pdo_mysql mbstring zip exif intl soap xml gd curl mysqli calendar
+RUN docker-php-ext-install pdo_mysql mbstring zip exif intl soap xml curl mysqli calendar
+
+RUN docker-php-ext-configure gd \
+--with-freetype=/usr/include/ \
+--with-jpeg=/usr/include/
+
+RUN docker-php-ext-install gd
 
 RUN npm install -g svgo
 
