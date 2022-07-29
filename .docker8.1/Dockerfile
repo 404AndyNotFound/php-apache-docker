@@ -1,4 +1,4 @@
-FROM php:8.1.7-apache
+FROM php:8.1.8-apache
 
 RUN apt-get clean all
 RUN apt-get update
@@ -29,6 +29,10 @@ RUN echo "extension=decimal.so" > /usr/local/etc/php/conf.d/30_decimal.ini
 RUN pecl install imagick
 
 RUN echo "extension=imagick.so" > /usr/local/etc/php/conf.d/40_imagick.ini
+
+RUN pecl install mongodb
+
+RUN echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/50_mongodb.ini
 
 RUN docker-php-ext-install pdo_mysql mbstring zip exif intl soap xml gd curl mysqli calendar
 

@@ -27,9 +27,18 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=887Ap491
+      - MYSQL_ROOT_PASSWORD=xxxxxxxx
       - TZ=UTC
-      
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:5.0
+    restart: always
+    ports:
+     - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
   redis:
     container_name: redis
     image: redislabs/redisearch:latest
@@ -88,3 +97,4 @@ services:
 volumes:
   mariadb_data:
   redis_data:
+  mongodb_data:
