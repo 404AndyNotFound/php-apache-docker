@@ -74,6 +74,7 @@ services:
     volumes:
       - ./www:/var/www/html
       - ./vhost8.1.conf:/etc/apache2/sites-available/000-default.conf
+      - ./custom8-1.ini:/usr/local/etc/php/conf.d/custom.ini
     environment:
       - TZ=Europe/London
     env_file:
@@ -89,6 +90,7 @@ services:
     volumes:
       - ./www:/var/www/html
       - ./vhost7.4.conf:/etc/apache2/sites-available/000-default.conf
+      - ./custom7-4.ini:/usr/local/etc/php/conf.d/custom.ini
     environment:
       - TZ=Europe/London
     env_file:
