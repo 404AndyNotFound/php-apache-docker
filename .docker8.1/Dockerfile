@@ -49,3 +49,15 @@ RUN mkdir -p /tmp/pear/cache
 RUN mkdir /app
 
 RUN chown -R www-data:www-data /app && a2enmod rewrite && a2enmod headers
+
+RUN apt update -y
+
+RUN apt-get install -y gnupg
+
+RUN curl https://packages.stripe.dev/api/security/keypair/stripe-cli-gpg/public | apt-key add -
+
+RUN echo "deb https://packages.stripe.dev/stripe-cli-debian-local stable main" | tee -a /etc/apt/sources.list
+
+RUN apt update -y
+
+RUN apt install -y stripe
