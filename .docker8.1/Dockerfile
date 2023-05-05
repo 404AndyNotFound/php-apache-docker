@@ -34,6 +34,14 @@ RUN pecl install mongodb
 
 RUN echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/50_mongodb.ini
 
+RUN a2enmod proxy
+RUN a2enmod proxy_http
+RUN a2enmod proxy_balancer
+RUN a2enmod lbmethod_byrequests
+RUN a2enmod proxy_ajp
+RUN a2enmod proxy_connect
+RUN a2enmod proxy_html
+
 RUN docker-php-ext-install pdo_mysql mbstring zip exif intl soap xml curl mysqli calendar
 
 RUN docker-php-ext-configure gd \
